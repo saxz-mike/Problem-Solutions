@@ -1,35 +1,35 @@
-// finds the day where I can buy the stock and day where I can sell the stock to get the max profit.
-
-"use strict";
+// finds the day where I can Buying_Price the stock and day where I can Selling_Price the stock to get the max profit.
+//you can test test the code here http://www.webtoolkitonline.com/javascript-tester.html => copy paste the code and 
+//click on the execute button
 
 function stock(arr) {
-  var buy = -1;
-  var sell = -1;
+  var Buying_Price = -1;
+  var Selling_Price = -1;
   var profit = -1;
-  var changeSellPrice = true;
+  var Change_Selling_Price = true;
 
   if (arr.length < 2) {
     return 0;
   } else {
     for (var i = 0; i < arr.length; i++) {
-      // assigning "buy" value inside the array because if array is empty, buy would be -1
-      if (buy === -1) {
-        buy = arr[i];
+      // assigning "Buying_Price" value inside the array because if array is empty, Buying_Price would be -1
+      if (Buying_Price === -1) {
+        Buying_Price = arr[i];
       }
-      if (buy > arr[i]) {
-        buy = arr[i];
-        changeSellPrice = true;
+      if (Buying_Price > arr[i]) {
+        Buying_Price = arr[i];
+        Change_Selling_Price = true;
       }
 
-      if (changeSellPrice || sell < arr[i + 1]) {
-        sell = arr[i + 1];
-        if (profit < sell - buy) {
-          profit = sell - buy;
-          var y = "buy when the price is" + + buy + "\n";
-          var x = "sell when the Price is " + sell + "\n";
+      if (Change_Selling_Price || Selling_Price < arr[i + 1]) {
+        Selling_Price = arr[i + 1];
+        if (profit < Selling_Price - Buying_Price) {
+          profit = Selling_Price - Buying_Price;
+          var y = "Buy when the price is"  + Buying_Price + "\n";
+          var x = "Sell when the Price is " + Selling_Price + "\n";
           var z = "The profit will be " + profit;
           var display = y + x + z;
-          changeSellPrice = false;
+          Change_Selling_Price = false;
         }
       }
     }
@@ -37,5 +37,5 @@ function stock(arr) {
     return display;
   }
 }
-
-stock([1, 5, 6, 7, 34, 10, 300]);
+//test data 
+ stock([1, 5, 6, 7, 34, 10, 300]); 

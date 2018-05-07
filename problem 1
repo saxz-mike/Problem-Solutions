@@ -1,0 +1,41 @@
+// finds the day where I can buy the stock and day where I can sell the stock to get the max profit.
+
+"use strict";
+
+function stock(arr) {
+  var buy = -1;
+  var sell = -1;
+  var profit = -1;
+  var changeSellPrice = true;
+
+  if (arr.length < 2) {
+    return 0;
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      // assigning "buy" value inside the array because if array is empty, buy would be -1
+      if (buy === -1) {
+        buy = arr[i];
+      }
+      if (buy > arr[i]) {
+        buy = arr[i];
+        changeSellPrice = true;
+      }
+
+      if (changeSellPrice || sell < arr[i + 1]) {
+        sell = arr[i + 1];
+        if (profit < sell - buy) {
+          profit = sell - buy;
+          var y = "buy when the price is" + + buy + "\n";
+          var x = "sell when the Price is " + sell + "\n";
+          var z = "The profit will be " + profit;
+          var display = y + x + z;
+          changeSellPrice = false;
+        }
+      }
+    }
+
+    return display;
+  }
+}
+
+stock([1, 5, 6, 7, 34, 10, 300]);

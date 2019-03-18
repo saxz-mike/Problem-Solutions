@@ -1,4 +1,4 @@
-// finds the day where I can Buying_Price the stock and day where I can Selling_Price the stock to get the max profit.
+// finds the day when the Buying_Price of the stock is low and the day when if I sold the stock I would get max profit.
 //you may test the code here http://www.webtoolkitonline.com/javascript-tester.html => copy paste the code and 
 //click on the execute button
 
